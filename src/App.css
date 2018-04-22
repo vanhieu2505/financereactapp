@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background: #000;
+  color: #fff;
 }
 
 .App-logo {
@@ -25,4 +27,59 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+.general-stock-list, .detailed-board, .detailed-stock-board {
+  display: flex;
+  flex-direction: column;
+  width: 350px;  
+}
+.general-stock-item, .stock-line {
+  display: flex;
+  flex-direction: row;
+  padding: 15px 10px;
+  border: 1px solid #ccc;
+}
+.stock-item {
+  padding: 3px 0;
+}
+.stock-item.small, .stock-line-text {
+  flex: 2 0 0;
+}
+.stock-line-text {
+  text-align: left;
+  color: #ccc;
+}
+.stock-line-value {
+  flex: 1 0 0;
+  margin-right: 30px;
+  text-align: right;
+}
+.stock-line-value.last {
+  margin-right: 0px;  
+}
+.stock-item.big {
+  flex: 5 0 0;
+  text-align: left;
+}
+.general-stock-data {
+    background: red;    
+    padding: 3px 5px;
+    border-radius: 3px;
+}
+.navigator {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-left: 0px;
+}
+.navigator-item {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 4px;
+  background: #555;
+  margin: 0 10px;
+}
+.navigator-item.selected {
+  background: #fff;
 }

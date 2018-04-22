@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { changeSelectedData } from '../actions/financeActions';
+import PropTypes from 'prop-types';
 
 class GeneralStockItem extends Component {
     constructor(props) {
@@ -6,8 +9,7 @@ class GeneralStockItem extends Component {
         this.state = {
             stockCode: 'Z74.SI',
             stockPrice: 3.41,
-            data: ['55.66B', '-0.58%', '-0.02'],
-            currentIndex: 0
+            data: ['55.66B', '- 0.58%', '- 0.02']
         };
     }
 
@@ -16,26 +18,26 @@ class GeneralStockItem extends Component {
     }
 
     onDataClick(e) {
-        if (this.state.currentIndex < 2) {
-            this.setState({
-                currentIndex: this.state.currentIndex + 1
-            });
-        } else {
-            this.setState({
-                currentIndex: 0
-            });
-        }
+        this.props.changeSelectedData();        
     }
 
     render() {
         return (
-            <div onClick={this.onRowClick.bind(this)}>
-                <div>{this.state.stockCode}</div>
-                <div>{this.state.stockPrice}</div>
-                <div onClick={this.onDataClick.bind(this)}>{this.state.data[this.state.currentIndex]}</div>
+            <div className="general-stock-item" onClick={this.onRowClick.bind(this)}>
+                <div className="stock-item big">{this.state.stockCode}</div>
+                <div className="stock-item small">{this.state.stockPrice}</div>
+                <div className="stock-item small general-stock-data" onClick={this.onDataClick.bind(this)}>{this.state.data[this.props.selectedData]}</div>
             </div>  
         );
     }
 }
 
-export default GeneralStockItem;
+GeneralStockItem.propTypes = {
+    selectedData: PropTypes.number.isRequired
+};
+
+const mapStateToProps = state => ({
+    selectedData: state.finance.selectedData
+});
+
+export default connect(mapStateToProps, { changeSelectedData })(GeneralStockItem);

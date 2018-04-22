@@ -8,7 +8,7 @@ class ListGeneralStockItem extends Component {
 
     render() {
         return (
-            <div>
+            <div className="general-stock-list">
                 <GeneralStockItem />
                 <GeneralStockItem />
                 <GeneralStockItem />

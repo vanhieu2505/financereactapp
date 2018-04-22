@@ -4,6 +4,7 @@ import './App.css';
 import store from './js/store';
 import { Provider } from 'react-redux';
 import ListGeneralStockItem from './js/components/ListGeneralStockItem';
+import DetailedBoard from './js/components/DetailedBoard';
 
 class App extends Component {
   render() {
@@ -14,7 +15,8 @@ class App extends Component {
             <img src={logo} className="App-logo" alt="logo" />
             <h1 className="App-title">Welcome to React</h1>
           </header>
-          <ListGeneralStockItem />          
+          <ListGeneralStockItem />  
+          <DetailedBoard />        
         </div>
       </Provider>
     );
